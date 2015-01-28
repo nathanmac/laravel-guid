@@ -18,7 +18,11 @@ class GUIDServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('nathanmac/guid');
+		$laravel = app();
+		if (version_compare($laravel::VERSION, '4.2', '<='))
+		{
+			$this->package('nathanmac/guid');
+		}
 	}
 
 	/**
